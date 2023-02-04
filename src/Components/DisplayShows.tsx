@@ -45,6 +45,7 @@ export default function DisplayShows({
         {Data.map((item) => {
           return (
             <ShowCard
+              key={`${item.ratings}${item.name}`}
               name={item.name}
               platform={item.plat}
               ratings={item.ratings}

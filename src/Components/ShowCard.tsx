@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 type ShowCardProps = {
@@ -17,8 +18,8 @@ export default function ShowCard({
     <div className="bg-teal-900 xl:w-11/12 lg:w-2/3 md:w-2/3 w-10/12 rounded overflow-hidden shadow-lg justify-self-center">
       <div className="w-full h-4/5 overflow-hidden">
         <img
-          className="w-full h-full object-cover hover:scale-110 transition-all ease-in-out duration-500 cursor-pointer"
           src={image}
+          className="w-full h-full object-cover hover:scale-110 transition-all ease-in-out duration-500 cursor-pointer"
           alt={name}
         />
       </div>
