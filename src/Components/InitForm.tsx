@@ -81,7 +81,7 @@ export default function InitForm(): JSX.Element {
         >
           <strong className="font-bold mr-3">Psych!</strong>
           <span className="block sm:inline">
-            That's the wronnggg number - I mean, fill all the fields
+            That&apos;s the wronnggg number - I mean, fill all the fields
           </span>
           <span className="absolute top-0 bottom-0 right-0 px-4 py-3">
             <svg

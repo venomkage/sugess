@@ -26,7 +26,7 @@ const Data = [
   },
 ];
 
-export default function results(): JSX.Element {
+export default function Results(): JSX.Element {
   const router = useRouter();
   const { fChoice, sChoice, tChoice } = router.query;
 
