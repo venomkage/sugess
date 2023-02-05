@@ -25,6 +25,8 @@ export default function ShowCard({
       </div>
       <div className=" h-1/5 px-6 py-4 text-white">
         <div className="font-bold text-xl mb-2">{name}</div>
+        <div className="font-bold text-xl mb-2">{platform}</div>
+        <div className="font-bold text-xl mb-2">Ratings: {ratings}</div>
       </div>
     </div>
   );
