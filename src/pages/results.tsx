@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import ShowCard from "../Components/ShowCard";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const Data = [
   {
@@ -31,11 +32,11 @@ export default function Results(): JSX.Element {
   const { fChoice, sChoice, tChoice } = router.query;
 
   return (
-    <div className=" flex flex-col items-center justify-center w-screen text-center py-6  ">
+    <div className=" flex flex-col items-center  w-screen text-center   ">
       {/* <p>{`${fChoice} ${sChoice} ${tChoice}`}</p> */}
 
-      <div className="container grid justify-center xl:grid-cols-3 lg:grid-cols-2 sm:grid-cols-1 gap-2 mx-auto my-3 py-3">
-        {Data.map((item) => {
+      <div className=" pt-3 container grid justify-center xl:grid-cols-3 lg:grid-cols-2 sm:grid-cols-1 gap-2 mx-auto py-0 overflow-hidden">
+        {Data.map((item, index) => {
           return (
             <ShowCard
               key={`${item.ratings}${item.name}`}
@@ -43,16 +44,36 @@ export default function Results(): JSX.Element {
               platform={item.plat}
               ratings={item.ratings}
               image={item.image}
+              delay={0.1 * index}
             />
           );
         })}
+        <Link
+          href={"/"}
+          className="w-1/2 absolute bottom-1 justify-self-center "
+        >
+          <motion.button
+            initial="down"
+            animate="up"
+            variants={{
+              down: {
+                translateY: "100%",
+                opacity: 0,
+              },
+              up: {
+                translateY: "0%",
+                opacity: 1,
+                transition: {
+                  delay: 0.3,
+                },
+              },
+            }}
+            className="bg-teal-900 text-white h-10 rounded w-full"
+          >
+            Go Back
+          </motion.button>
+        </Link>
       </div>
-
-      <Link href={"/"} className="w-1/2">
-        <button className="bg-teal-900 text-white h-10 rounded w-full">
-          Go Back
-        </button>
-      </Link>
     </div>
   );
 }
