@@ -40,7 +40,7 @@ function getRandomItem(arr: []) {
 
 const fetching = async (choice: string | string[]) => {
   const data = await fetch(
-    `${process.env.BASE_URL}/search/movie?api_key=${process.env.API_KEY}&language=en-US&query=${choice}&page=1&include_adult=false`
+    `${process.env.BASE_URL}/search/movie?api_key=${process.env.API_KEY}&language=en-US&query=${choice}&page=1&include_adult=true`
   );
   const res = await data.json();
 
