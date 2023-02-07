@@ -1,10 +1,10 @@
-import Image from "next/image";
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 type ShowCardProps = {
   name: string;
-  platform: string;
+  releaseDate?: string;
   ratings: number;
   image: string;
   delay: number;
@@ -12,7 +12,7 @@ type ShowCardProps = {
 
 export default function ShowCard({
   name,
-  platform,
+  releaseDate,
   ratings,
   image,
   delay,
@@ -34,19 +34,25 @@ export default function ShowCard({
           },
         },
       }}
-      className="h-3/4 bg-teal-900 xl:w-11/12 lg:w-2/3 md:w-2/3 w-10/12 rounded overflow-hidden shadow-lg justify-self-center"
+      className="bg-teal-900 rounded overflow-hidden w-3/4"
     >
       <div className=" w-full h-4/5 overflow-hidden">
-        <img
-          src={image}
+        <Image
+          src={`https://image.tmdb.org/t/p/original${image}`}
           className="w-full h-full object-cover hover:scale-110 transition-all ease-in-out duration-500 cursor-pointer"
+          width={100}
+          height={100}
           alt={name}
         />
       </div>
-      <div className=" h-1/5 px-6 py-0 text-white">
-        <div className="font-bold text-xl mb-2">{name}</div>
-        <div className="font-bold text-xl mb-2">{platform}</div>
-        <div className="font-bold text-xl mb-2">Ratings: {ratings}</div>
+      <div className="flex flex-col items-center justify-center text-center h-1/5 py-3 text-white">
+        <div className="bg-[#00000073] w-full font-semibold text-xl mb-2">
+          {name}
+        </div>
+        <div className="font-medium text-sm mb-2">Ratings: {ratings}</div>
+        <div className="font-medium text-sm mb-2">
+          Year released: {releaseDate}
+        </div>
       </div>
     </motion.div>
   );
